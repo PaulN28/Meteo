@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Météo d'une ville
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-searchbar #userInput placeholder="Nom de ville (en anglais)"></ion-searchbar><!-- Récupération de la saisie de la ville-->
+
+<ion-button (click)="getWeatherByCity(userInput.value)">Voir la météo d'une ville </ion-button> 
+
+<ion-card *ngIf="weather">
+  <ion-card-header> {{weather.name}} </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-avatar slot="start"><img src="assets/icon/{{weather.weather[0].icon}}@2x.png"></ion-avatar>
+      <ion-label>{{weather.main.temp}}</ion-label>
+      <ion-label>{{weather.weather[0].description}}</ion-label>  
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+
+
+
+ 

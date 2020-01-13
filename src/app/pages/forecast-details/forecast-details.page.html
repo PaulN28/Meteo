@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Détails
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="detail">
+    <ion-card-header>{{forecast.city.name}}</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>
+          {{ detail.dt_txt }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+        {{ detail.main.temp }}°
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+      {{ detail.weather[0].main }}
+    </ion-label>
+    <ion-avatar slot="start"><img src="assets/icon/{{detail.weather[0].icon}}@2x.png"></ion-avatar>
+  </ion-item>
+  
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="share()">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
